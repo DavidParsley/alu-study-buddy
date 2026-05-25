@@ -62,9 +62,11 @@ def build_messages(messages: List[Message], notes_context: str) -> list:
 def get_claude_response(messages: List[Message], notes_context: str, mode: str) -> str:
     system_prompt = SYSTEM_PROMPTS.get(mode, SYSTEM_PROMPTS["explain"])
     formatted_messages = build_messages(messages, notes_context)
-
+    
+    print(f"API KEY LOADED: {os.getenv('ANTHROPIC_API_KEY')[:20]}...") 
+    
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5",
         max_tokens=1024,
         system=system_prompt,
         messages=formatted_messages
