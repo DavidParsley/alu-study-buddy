@@ -60,7 +60,7 @@ function App() {
             </div>
           )}
 
-          <ChatWindow messages={messages} isLoading={isLoading} />
+          <ChatWindow messages={messages} isLoading={isLoading} onSend={handleSend} />
           <InputBar
             onSend={handleSend}
             isLoading={isLoading}

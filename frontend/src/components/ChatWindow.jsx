@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 import MessageBubble from "./MessageBubble"
 
-function ChatWindow({ messages, isLoading }) {
+function ChatWindow({ messages, isLoading, onSend }) {
   const bottomRef = useRef(null)
 
   // Auto scroll to bottom whenever messages update
