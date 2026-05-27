@@ -1,4 +1,4 @@
-# backend/main.py
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.chat import router
@@ -9,10 +9,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
+origins = [
+    "http://localhost:5173",
+    os.getenv("FRONTEND_URL", ""),
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
