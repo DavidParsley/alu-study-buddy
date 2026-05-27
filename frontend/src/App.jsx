@@ -3,6 +3,7 @@ import ModeSelector from "./components/ModeSelector"
 import NotesPad from "./components/NotesPad"
 import ChatWindow from "./components/ChatWindow"
 import InputBar from "./components/InputBar"
+import { RotateCcw, GraduationCap } from "lucide-react"
 
 function App() {
   const {
@@ -18,25 +19,37 @@ function App() {
   } = useChat()
 
   return (
-    <div className="h-screen flex flex-col bg-white overflow-hidden">
+    <div className="h-screen flex flex-col bg-white overflow-hidden font-sans">
 
-      {/* Top Header */}
-      <header className="flex items-center justify-between px-6 py-3 bg-alu-blue shadow-md shrink-0">
+      {/* Header */}
+      <header className="flex items-center justify-between px-6 py-3 bg-alu-blue shrink-0"
+        style={{ boxShadow: "0 2px 12px rgba(0,46,109,0.18)" }}>
+
+        {/* Left — Logo + Title */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-alu-red rounded-lg flex items-center justify-center text-white font-bold text-sm">
-            A
+          <div className="w-9 h-9 bg-alu-red rounded-xl flex items-center justify-center shadow-md">
+            <GraduationCap size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="text-white font-bold text-lg leading-none">ALU Study Buddy</h1>
-            <p className="text-orange-200 text-xs">Powered by Claude AI</p>
+            <h1 className="text-white font-bold text-lg leading-tight tracking-tight">
+              ALU Study Buddy
+            </h1>
+            <p className="text-xs font-medium tracking-wide"
+              style={{ color: "#D97757" }}>
+              ✦ Powered by Anthropic Claude
+            </p>
           </div>
         </div>
+
+        {/* Right — New Session */}
         <button
           onClick={handleClear}
-          className="text-blue-200 hover:text-white text-sm border border-blue-400 hover:border-white px-3 py-1 rounded-lg transition-all duration-200"
+          className="flex items-center gap-2 text-sm font-medium text-white border border-white/30 hover:border-white hover:bg-white/10 px-4 py-2 rounded-xl transition-all duration-200"
         >
+          <RotateCcw size={14} />
           New Session
         </button>
+
       </header>
 
       {/* Mode Selector */}
@@ -53,14 +66,17 @@ function App() {
         {/* Right Panel — Chat */}
         <div className="w-2/3 flex flex-col overflow-hidden">
 
-          {/* Error banner */}
           {error && (
             <div className="mx-4 mt-3 px-4 py-2 bg-red-50 border border-alu-red rounded-lg">
               <p className="text-alu-red text-sm">{error}</p>
             </div>
           )}
 
-          <ChatWindow messages={messages} isLoading={isLoading} onSend={handleSend} />
+          <ChatWindow
+            messages={messages}
+            isLoading={isLoading}
+            onSend={handleSend}
+          />
           <InputBar
             onSend={handleSend}
             isLoading={isLoading}
@@ -68,6 +84,13 @@ function App() {
           />
 
         </div>
+      </div>
+
+      {/* Ethics Footer */}
+      <div className="bg-alu-surface border-t border-alu-border px-6 py-2 flex items-center justify-center gap-2">
+        <span className="text-xs text-alu-light text-center">
+          🎓 ALU Study Buddy is a learning tool. Use it to <span className="font-semibold text-alu-blue">understand</span> — not to copy. Academic integrity matters.
+        </span>
       </div>
 
     </div>
