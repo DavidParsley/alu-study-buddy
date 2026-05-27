@@ -28,7 +28,7 @@ function App() {
           </div>
           <div>
             <h1 className="text-white font-bold text-lg leading-none">ALU Study Buddy</h1>
-            <p className="text-blue-200 text-xs">Powered by Claude AI</p>
+            <p className="text-orange-200 text-xs">Powered by Claude AI</p>
           </div>
         </div>
         <button
