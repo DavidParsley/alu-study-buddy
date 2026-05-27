@@ -103,7 +103,7 @@ function App() {
         <span className="text-xs text-alu-light text-center">
           🎓 ALU Study Buddy is a learning tool. Use it to{" "}
           <span className="font-semibold text-alu-blue">understand</span> — not
-          to copy. Academic integrity matters.
+          to Cheat. Academic integrity matters.
         </span>
       </div>
     </div>
