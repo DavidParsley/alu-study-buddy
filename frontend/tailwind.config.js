@@ -16,6 +16,7 @@ export default {
           text: "#1A1A1A",
           muted: "#505050",
           light: "#7D7D7D",
+          orange: "#D97757",
         }
       },
       fontFamily: {
