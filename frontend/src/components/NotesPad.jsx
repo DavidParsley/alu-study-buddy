@@ -23,7 +23,7 @@ function NotesPad({ notes, onNotesChange, topic, onTopicChange }) {
             type="text"
             value={topic}
             onChange={(e) => onTopicChange(e.target.value)}
-            placeholder="Course or topic (e.g. COMP 201 — Week 4)"
+            placeholder="Course or topic (e.g.  RT-IKIGAI — Week 4)"
             className="flex-1 text-xs font-medium text-alu-blue bg-transparent outline-none placeholder-alu-light"
           />
         </div>
