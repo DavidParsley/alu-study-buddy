@@ -125,7 +125,7 @@ function App() {
           <GraduationCap size={11} className="inline mr-1 mb-0.5" />
           ALU Study Buddy is a learning tool. Use it to{" "}
           <span className="font-semibold text-alu-blue">understand</span> — not
-          to Cheat. Academic integrity matters.
+          for plagiarism. Academic integrity matters.
         </span>
       </div>
 
