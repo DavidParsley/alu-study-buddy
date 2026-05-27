@@ -1,5 +1,3 @@
-// frontend/src/components/NotesPad.jsx
-
 function NotesPad({ notes, onNotesChange }) {
   return (
     <div className="flex flex-col h-full bg-white border-r border-alu-border">

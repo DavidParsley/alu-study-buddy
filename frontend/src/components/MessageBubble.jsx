@@ -1,5 +1,3 @@
-// frontend/src/components/MessageBubble.jsx
-
 function MessageBubble({ message }) {
   const isUser = message.role === "user"
 

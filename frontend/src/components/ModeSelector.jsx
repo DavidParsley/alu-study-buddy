@@ -1,5 +1,3 @@
-// frontend/src/components/ModeSelector.jsx
-
 const MODES = [
   {
     id: "explain",
