@@ -1,17 +1,39 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { sendMessage } from "../utils/api"
 
 function useChat() {
-  const [messages, setMessages] = useState([])
-  const [notes, setNotes] = useState("")
-  const [mode, setMode] = useState("explain")
+  const [messages, setMessages] = useState(() => {
+    const saved = localStorage.getItem("alu_messages")
+    return saved ? JSON.parse(saved) : []
+  })
+
+  const [notes, setNotes] = useState(() => {
+    return localStorage.getItem("alu_notes") || ""
+  })
+
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem("alu_mode") || "explain"
+  })
+
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
+
+  // Persist to localStorage whenever state changes
+  useEffect(() => {
+    localStorage.setItem("alu_messages", JSON.stringify(messages))
+  }, [messages])
+
+  useEffect(() => {
+    localStorage.setItem("alu_notes", notes)
+  }, [notes])
+
+  useEffect(() => {
+    localStorage.setItem("alu_mode", mode)
+  }, [mode])
 
   const handleSend = async (content) => {
     if (!content.trim() || isLoading) return
 
-    // Add user message to chat immediately
     const userMessage = { role: "user", content }
     const updatedMessages = [...messages, userMessage]
     setMessages(updatedMessages)
@@ -32,6 +54,7 @@ function useChat() {
   const handleClear = () => {
     setMessages([])
     setError(null)
+    localStorage.removeItem("alu_messages")
   }
 
   return {
