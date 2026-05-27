@@ -1,3 +1,5 @@
+import { SendHorizonal, NotebookPen } from "lucide-react"
+
 function InputBar({ onSend, isLoading, disabled }) {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey && !isLoading && !disabled) {
@@ -17,11 +19,12 @@ function InputBar({ onSend, isLoading, disabled }) {
   return (
     <div className="p-4 border-t border-alu-border bg-white">
 
-      {/* Disabled notice — shown when no notes pasted yet */}
+      {/* Disabled notice */}
       {disabled && (
-        <div className="mb-3 px-4 py-2 bg-blue-50 border border-alu-blue rounded-lg">
+        <div className="mb-3 px-4 py-2 bg-blue-50 border border-alu-blue rounded-lg flex items-center gap-2">
+          <NotebookPen size={14} className="text-alu-blue shrink-0" />
           <p className="text-alu-blue text-xs font-medium">
-            📝 Paste your notes on the left to get started
+            Paste your notes on the left to get started
           </p>
         </div>
       )}
@@ -32,7 +35,6 @@ function InputBar({ onSend, isLoading, disabled }) {
           : "border-alu-blue bg-white shadow-sm"
         }`}>
 
-        {/* Text input */}
         <textarea
           id="chat-input"
           rows={1}
@@ -42,7 +44,6 @@ function InputBar({ onSend, isLoading, disabled }) {
           className="flex-1 resize-none outline-none text-sm text-alu-text placeholder-alu-light bg-transparent leading-relaxed max-h-32 overflow-y-auto"
         />
 
-        {/* Send button */}
         <button
           onClick={handleSend}
           disabled={disabled || isLoading}
@@ -53,16 +54,16 @@ function InputBar({ onSend, isLoading, disabled }) {
             }`}
         >
           {isLoading
-            ? <span className="text-xs">...</span>
-            : <span className="text-lg">↑</span>
+            ? <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            : <SendHorizonal size={16} />
           }
         </button>
 
       </div>
 
-      {/* Hint */}
       <p className="text-xs text-alu-light mt-2 text-center">
-        Press <kbd className="px-1 py-0.5 bg-alu-surface border border-alu-border rounded text-xs">Enter</kbd> to send · <kbd className="px-1 py-0.5 bg-alu-surface border border-alu-border rounded text-xs">Shift + Enter</kbd> for new line
+        Press <kbd className="px-1 py-0.5 bg-alu-surface border border-alu-border rounded text-xs">Enter</kbd> to send ·&nbsp;
+        <kbd className="px-1 py-0.5 bg-alu-surface border border-alu-border rounded text-xs">Shift + Enter</kbd> for new line
       </p>
 
     </div>

@@ -1,4 +1,3 @@
-// frontend/src/components/NotesPad.jsx
 import { BookOpen, FileText } from "lucide-react"
 
 function NotesPad({ notes, onNotesChange }) {

@@ -1,4 +1,3 @@
-// frontend/src/components/ModeSelector.jsx
 import { Lightbulb, PenLine, FileText } from "lucide-react"
 
 const MODES = [
