@@ -141,7 +141,7 @@ ALU Study Buddy was designed with academic integrity at its core:
 
 ## Demo
 
-**Live URL:** [your-vercel-url.vercel.app]
+**Live URL:** [https://alu-study-buddy.vercel.app/]
 **GitHub:** [https://github.com/DavidParsley/alu-study-buddy]
 
 ---
